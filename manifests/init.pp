@@ -30,14 +30,25 @@ class nodejs(
   repository { $nodenv_root:
     ensure => $nodenv_version,
     force  => true,
-    source => 'wfarr/nodenv',
+    source => 'OiNutter/nodenv',
     user   => $nodenv_user
-  }
-
+  } ->
   file { "${nodejs::nodenv_root}/versions":
     ensure  => directory,
     owner   => $nodenv_user,
     mode    => '0755',
     require => Repository[$nodenv_root]
+  } ->
+  file { "${nodejs::nodenv_root}/plugins":
+    ensure  => directory,
+    owner   => $nodenv_user,
+    mode    => '0755',
+    require => Repository[$nodenv_root]
+  } ->
+  repository { "$nodenv_root/plugins/node-build":
+    ensure => 'master',
+    force  => true,
+    source => 'OiNutter/node-build',
+    user   => $nodenv_user
   }
 }

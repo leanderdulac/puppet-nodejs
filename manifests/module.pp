@@ -2,7 +2,7 @@
 #
 # Usage:
 #
-#   nodejs::module { 'bower for v0.10': node_version => 'v0.10' }
+#   nodejs::module { 'bower for 0.10': node_version => '0.10' }
 
 define nodejs::module(
   $node_version,

@@ -15,8 +15,8 @@ Puppet::Type.newtype :nodejs do
     isnamevar
 
     validate do |value|
-      unless value =~ /\Av\d+\.\d+\.\d+\z/
-        raise Puppet::Error, "Version must be like vN.N.N, not #{value}"
+      unless value =~ /\A\d+\.\d+\.\d+\z/
+        raise Puppet::Error, "Version must be like N.N.N, not #{value}"
       end
     end
   end

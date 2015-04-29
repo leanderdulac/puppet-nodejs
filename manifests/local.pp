@@ -3,7 +3,7 @@
 #
 # Usage:
 #
-#   nodejs::local { '/path/to/somewhere': version => 'v0.10' }
+#   nodejs::local { '/path/to/somewhere': version => '0.10' }
 
 define nodejs::local(
   $version = undef,
@@ -14,8 +14,8 @@ define nodejs::local(
     'Ensure must be one of present or absent')
 
   if $ensure == present {
-    validate_re($version, '\Av\d+\.\d+(\.\d+)*\z',
-      'Version must be of the form vN.N(.N)')
+    validate_re($version, '\A\d+\.\d+(\.\d+)*\z',
+      'Version must be of the form N.N(.N)')
 
     ensure_resource('nodejs::version', $version)
   }

@@ -2,7 +2,7 @@
 #
 # Usage:
 #
-#     nodejs::alias { 'v0.10': to => 'v0.10.29' }
+#     nodejs::alias { '0.10': to => '0.10.29' }
 
 define nodejs::alias(
   $ensure  = 'installed',
